@@ -1,5 +1,5 @@
 import click
-from dockmira import display
+from . import display
 
 @click.group()
 def cli():
@@ -24,7 +24,7 @@ def watch():
 @cli.command()
 def list():
     """List all running containers and their current stats once."""
-    from dockmira import docker_client
+    from . import docker_client
     stats = docker_client.getContainerStats()
     if not stats:
         print("No containers running!")
